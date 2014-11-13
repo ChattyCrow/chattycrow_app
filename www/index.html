@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="assets/ratchet/css/ratchet.min.css" rel="stylesheet">
     <link href="assets/foundation/foundation-icons.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/pageslider.css" rel="stylesheet">
@@ -14,16 +14,21 @@
     <span class="icon icon-left-nav"></span>
   </a>
   <div class="title">
-    <span class="title-image">
-      ChattyCrow
-    </span>
+    <div class="title-content">
+      <span class="title-image text-first" style="opacity: 1.0;">
+        ChattyCrow
+      </span>
+      <span class="title-image text-second" style="opacity: 0.0;">
+        ChattyCrow
+      </span>
+    </div>
   </div>
 </header>
 <div class="content">
 
 </div>
 <nav class="bar bar-tab">
-  <a class="tab-item active about" href="#">
+  <a class="tab-item about" href="#">
     About
   </a>
   <a class="tab-item exitApp" href="#">
@@ -76,15 +81,22 @@
 </script>
 
 <script id="about-tpl" type="text/template">
-  <h1>About</h1>
+<div class="card" style="padding: 20px;">
+  <h2>About</h2>
+  <p>This is an example application for iOS, Android and Windows phone to register push ID and receive push ID on these platforms.
+</div>
 </script>
 
 <script id="settings-tpl" type="text/template">
+<div class="card" style="padding: 20px;">
   <form>
-    <input type="text" placeholder="API Host" id="serverHost" value="{{ hostUrl }}" />
-    <input type="text" placeholder="Contact Token" id="contactToken" value="{{ contactToken }}" />
+    <label for="serverHost">API Host:</label>
+    <input type="text" id="serverHost" value="{{ hostUrl }}" />
+    <label for="contactToken">Contact token:</label>
+    <input type="text" id="contactToken" value="{{ contactToken }}" />
     <button class="btn btn-positive btn-block" id="saveSettings">Save</button>
   </form>
+</div>
 </script>
 
 <script id="history-tpl" type="text/template">

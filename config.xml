@@ -14,4 +14,23 @@
     <access origin="*" />
     <preference name="orientation" value="landscape" />
     <preference name="phonegap-version" value="3.6.3" />
+
+    <feature name="Console">
+        <param name="id" value="org.apache.cordova.console" />
+    </feature>
+    <feature name="Device">
+        <param name="id" value="org.apache.cordova.device" />
+    </feature>
+    <feature name="Notification">
+        <param name="id" value="org.apache.cordova.dialogs" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="id" value="org.apache.cordova.geolocation" />
+    </feature>
+    <feature name="Splashscreen">
+        <param name="id" value="org.apache.cordova.splashscreen" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="id" value="org.apache.cordova.statusbar" />
+    </feature>
 </widget>

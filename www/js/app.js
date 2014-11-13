@@ -18,21 +18,25 @@
       router.addRoute('', function() {
         slider.slidePage(new Home(settingsService).render().$el);
         backButton.hide();
+        changeTitleText('ChattyCrow');
       });
 
       router.addRoute('about', function() {
         slider.slidePage(new About(settingsService).render().$el);
         backButton.show();
+        changeTitleText('About');
       });
 
       router.addRoute('history', function() {
         slider.slidePage(new History(settingsService).render().$el);
         backButton.show();
+        changeTitleText('History');
       });
 
       router.addRoute('settings', function() {
         slider.slidePage(new Settings(settingsService).render().$el);
         backButton.show();
+        changeTitleText('Settings');
       });
 
       router.start();
@@ -68,5 +72,15 @@
     }
     function exitApp() {
       navigator.app.exitApp();
+    }
+    function changeTitleText(text) {
+      $('.text-second').html(text);
+      // start fade in / fade out
+      $('.text-first').animate({ opacity: 0.0 }, 500);
+      $('.text-second').animate({ opacity: 1.0 }, 500, function() {
+        $('.text-first').html(text);
+        $('.text-first').css('opacity', '1.0');
+        $('.text-second').css('opacity', '0.0');
+      });
     }
 }());
