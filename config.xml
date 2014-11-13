@@ -13,5 +13,5 @@
     <preference name="SplashScreenDelay" value="3000" />
     <access origin="*" />
     <preference name="orientation" value="landscape" />
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="3.6.3" />
 </widget>
