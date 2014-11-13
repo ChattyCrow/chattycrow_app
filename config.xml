@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.netbrick.chattycrow" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ChattyCrow</name>
+    <description>
+      A sample Chatty Crow application.
+    </description>
+    <author email="dev@chattycrow.com" href="https://chattycrow.com">
+        ChattyCrow Team.
+    </author>
+    <content src="index.html" />
+    <icon src="res/icon.png" />
+    <preference name="SplashScreen" value="foo" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <access origin="*" />
+    <preference name="orientation" value="landscape" />
+</widget>

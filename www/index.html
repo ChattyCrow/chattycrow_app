@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="assets/foundation/foundation-icons.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/pageslider.css" rel="stylesheet">
+</head>
+<body>
+<header class="bar bar-nav">
+  <a class="btn btn-link btn-nav pull-left" style="display: none;" id="backButton" href="#">
+    <span class="icon icon-left-nav"></span>
+  </a>
+  <div class="title">
+    <span class="title-image">
+      ChattyCrow
+    </span>
+  </div>
+</header>
+<div class="content">
+
+</div>
+<nav class="bar bar-tab">
+  <a class="tab-item active about" href="#">
+    About
+  </a>
+  <a class="tab-item exitApp" href="#">
+    Quit
+  </a>
+</nav>
+
+<script id="home-tpl" type="text/template">
+<div class="card">
+    <ul class="table-view">
+      <li class="table-view-cell media">
+        <a href="#" data-transition="slide-in">
+          <div class="media-body fi-star">
+            Sign in
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a href="#" data-transition="slide-in">
+          <div class="media-body fi-marker">
+            Send position
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a class="navigate-right" href="#history" data-transition="slide-in">
+          <span class="badge">5</span>
+          <div class="media-body fi-comments">
+            Push history
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a class="navigate-right" href="#settings" data-transition="slide-in">
+          <div class="media-body fi-wrench">
+            Settings
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a href="#about" class="navigate-right" data-transition="slide-in">
+          <div class="media-body fi-lightbulb">
+            Help
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</script>
+
+<script id="about-tpl" type="text/template">
+  <h1>About</h1>
+</script>
+
+<script id="settings-tpl" type="text/template">
+  <form>
+    <input type="text" placeholder="API Host" id="serverHost" value="{{ hostUrl }}" />
+    <input type="text" placeholder="Contact Token" id="contactToken" value="{{ contactToken }}" />
+    <button class="btn btn-positive btn-block" id="saveSettings">Save</button>
+  </form>
+</script>
+
+<script id="history-tpl" type="text/template">
+ <ul class="table-view">
+  <li class="table-view-cell media">
+    <div class="media-body">
+      23.4.2014 12:05
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+  <li class="table-view-cell media">
+    <div class="media-body">
+      23.4.2014 12:05
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+  <li class="table-view-cell media">
+    <div class="media-body">
+      23.4.2014 12:05
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+</ul>
+</script>
+
+  <script src="lib/handlebars.js"></script>
+  <script src="lib/fastclick.js"></script>
+  <script src="cordova.js"></script>
+  <script src="lib/jquery.js"></script>
+  <script src="lib/pageslider.js"></script>
+  <script src="lib/router.js"></script>
+  <script src="services/SettingsService.js"></script>
+  <script src="js/Home.js"></script>
+  <script src="js/Settings.js"></script>
+  <script src="js/History.js"></script>
+  <script src="js/About.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
