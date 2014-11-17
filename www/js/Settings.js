@@ -9,7 +9,7 @@ var Settings = function(settingsService) {
   this.saveSettings = function() {
     settingsService.saveSettings($('#serverHost').val(), $('#contactToken').val());
     window.location = "#";
-    alert('Saved');
+    alert('Settings was saved');
   }
 
   this.initialize = function() {

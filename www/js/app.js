@@ -67,10 +67,12 @@
     }, false);
 
     /* ---------------------------------- Local Functions ---------------------------------- */
-    function showAbout() {
+    function showAbout(evt) {
+      evt.preventDefault();
       alert('(c) Strnadj, 2014');
     }
-    function exitApp() {
+    function exitApp(evt) {
+      evt.preventDefault();
       navigator.app.exitApp();
     }
     function changeTitleText(text) {
