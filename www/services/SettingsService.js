@@ -1,42 +1,33 @@
-var SettingsService = function () {
+var SettingsService;
 
-  // Persist informations
-  var hostUrl, contactToken;
+SettingsService = (function() {
+  function SettingsService() {
+    this.hostUrl = '';
+    this.contactToken = '';
+  }
 
-  this.initialize = function() {
-    var deferred = $.Deferred();
-
-    // Get Data from local storage!
-    hostUrl = window.localStorage.getItem("hostUrl");
-    contactToken = window.localStorage.getItem("contactToken");
-
-    // If undefined set defaults
-    if (hostUrl == null) {
-      hostUrl = "https://chattycrow.com/api/v1/";
+  SettingsService.prototype.initialize = function() {
+    var deffered;
+    deffered = $.Deferred();
+    this.hostUrl = window.localStorage.getItem('hostUrl');
+    this.contactToken = window.localStorage.getItem('contactToken');
+    if (this.hostUrl === null) {
+      this.hostUrl = 'https://chattycrow.com/api/v1';
     }
-    if (contactToken == null) {
-      contactToken = "";
+    if (this.contactToken === null) {
+      this.contactToken = '';
     }
+    deffered.resolve();
+    return deffered.promise();
+  };
 
-    deferred.resolve();
-    return deferred.promise();
-  }
+  SettingsService.prototype.saveSettings = function(host, token) {
+    this.hostUrl = host;
+    this.contactToken = token;
+    window.localStorage.setItem('hostUrl', this.hostUrl);
+    return window.localStorage.setItem('contactToken', this.contactToken);
+  };
 
-  this.saveSettings = function(host, token) {
-    // Set variables to later-use
-    hostUrl = host;
-    contactToken = token;
+  return SettingsService;
 
-    // Persist in local storage
-    window.localStorage.setItem("hostUrl", hostUrl);
-    window.localStorage.setItem("contactToken", contactToken);
-  }
-
-  this.getHostUrl = function() {
-    return hostUrl;
-  }
-
-  this.getContactToken = function() {
-    return contactToken;
-  }
-}
+})();
