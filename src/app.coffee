@@ -37,7 +37,7 @@ changeTitleText = (text) ->
 settingsService.initialize().done ->
   # Prepare routes
   router.addRoute '', ->
-    slider.slidePage(new Home(historyService).render().el)
+    slider.slidePage(new Home(historyService, pushService).render().el)
     backButton.hide()
     changeTitleText('ChattyCrow')
 

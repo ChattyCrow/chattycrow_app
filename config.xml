@@ -9,7 +9,6 @@
     </author>
     <content src="index.html" />
     <icon src="res/icon.png" />
-    <preference name="SplashScreen" value="foo" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <access origin="*" />

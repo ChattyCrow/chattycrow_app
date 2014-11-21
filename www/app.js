@@ -44,7 +44,7 @@ changeTitleText = function(text) {
 
 settingsService.initialize().done(function() {
   router.addRoute('', function() {
-    slider.slidePage(new Home(historyService).render().el);
+    slider.slidePage(new Home(historyService, pushService).render().el);
     backButton.hide();
     return changeTitleText('ChattyCrow');
   });
