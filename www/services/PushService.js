@@ -34,7 +34,7 @@ PushService = (function() {
   };
 
   PushService.prototype.fail = function(evt) {
-    return alert(evt.message);
+    return console.log(evt);
   };
 
   PushService.prototype.storePushId = function(id) {

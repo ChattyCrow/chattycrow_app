@@ -42,7 +42,7 @@ class PushService
 
    # Fail!
    fail: (evt) ->
-     alert evt.message
+     console.log evt
 
    # Store local push ID
    storePushId: (id) ->
