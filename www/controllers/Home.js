@@ -19,16 +19,19 @@ Home = (function() {
     });
     this.el.on('click', '#sendPosition', function(evt) {
       evt.preventDefault();
+      window.plugins.spinnerDialog.show(null, 'Obtaining position ...');
       if (pushService.isRegistered()) {
         return navigator.geolocation.getCurrentPosition(function(position) {
           return sendToChattyCrow(pushService.getPushId(), position.coords.latitude, position.coords.longitude, function(err, suc) {
             if (err) {
-              return alert('Error while sending position');
+              alert('Error while sending position');
             } else {
-              return alert('Position has been sent');
+              alert('Position has been sent');
             }
+            return window.plugins.spinnerDialog.hide();
           });
         }, function() {
+          window.plugins.spinnerDialog.hide();
           return alert('Error getting location');
         });
       } else {

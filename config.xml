@@ -8,10 +8,40 @@
         ChattyCrow Team.
     </author>
     <content src="index.html" />
+
+    <!-- Define icons -->
     <icon src="res/icon.png" />
+
+    <!-- Define splash screens -->
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+
+    <platform name="ios">
+      <splash src="res/screens/ios/Default-568h@2x~iphone.png" width="640" height="1136" />
+      <splash src="res/screens/ios/Default-Landscape@2x~ipad.png" width="640" height="1136" />
+      <splash src="res/screens/ios/Default-Landscape~ipad.png" width="640" height="1136" />
+      <splash src="res/screens/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048" />
+      <splash src="res/screens/ios/Default-Portrait~ipad.png" width="768" height="1024" />
+      <splash src="res/screens/ios/Default@2x~iphone.png" width="640" height="960" />
+      <splash src="res/screens/ios/Default~iphone.png" width="320" height="480" />
+    </platform>
+
+    <platform name="Win32NT">
+      <splash src="res/screens/windows-phone/screen-portrait.png" width="320" height="480" />
+    </platform>
+
+    <platform name="android">
+      <splash src="res/screens/android/screen-xhdpi-portrait.png" density="port-xhdpi" width="720" height="1280" />
+      <splash src="res/screens/android/screen-xhdpi-landscape.png" density="land-xhdpi"  widht="1280" height="720" />
+      <splash src="res/screens/android/screen-mdpi-portrait.png" density="port-mdpi"  width="720" height="1280" />
+      <splash src="res/screens/android/screen-mdpi-landscape.png" density="land-mdpi"  width="480" height="320" />
+      <splash src="res/screens/android/screen-ldpi-portrait.png" density="port-ldpi"  width="200" height="320" />
+      <splash src="res/screens/android/screen-ldpi-landscape.png" density="land-ldpi"  width="320" height="200" />
+      <splash src="res/screens/android/screen-hdpi-portrait.png" density="port-hdpi"  width="480" height="800" />
+      <splash src="res/screens/android/screen-hdpi-landscape.png" density="land-hdpi"  width="800" height="480" />
+    </platform>
+
     <access origin="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />

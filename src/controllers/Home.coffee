@@ -18,6 +18,7 @@ class Home
 
     @el.on 'click', '#sendPosition', (evt) ->
       evt.preventDefault()
+      window.plugins.spinnerDialog.show(null, 'Obtaining position ...')
       if pushService.isRegistered()
         navigator.geolocation.getCurrentPosition(
           (position) ->
@@ -26,8 +27,10 @@ class Home
                 alert 'Error while sending position'
               else
                 alert 'Position has been sent'
+              window.plugins.spinnerDialog.hide()
         ,
           () ->
+            window.plugins.spinnerDialog.hide()
             alert('Error getting location')
         )
       else
