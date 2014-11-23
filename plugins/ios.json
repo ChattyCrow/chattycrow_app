@@ -120,9 +120,6 @@
         }
     },
     "installed_plugins": {
-        "com.jamiestarke.webviewdebug": {
-            "PACKAGE_NAME": "com.netbrick.chattycrow"
-        },
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.netbrick.chattycrow"
         },
