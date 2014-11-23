@@ -28,11 +28,11 @@
 
 </div>
 <nav class="bar bar-tab">
-  <a class="tab-item about" href="#">
+  <a class="tab-item" id="aboutBtn" href="#">
     About
   </a>
-  <a class="tab-item exitApp" href="#">
-    Quit
+  <a class="tab-item" id="clearHistory" href="#">
+    Clear History
   </a>
 </nav>
 
@@ -40,14 +40,19 @@
 <div class="card">
     <ul class="table-view">
       <li class="table-view-cell media">
-        <a href="#" data-transition="slide-in" id="signInPush">
+        <a href="#" data-transition="slide-in" id="signOutPush" {{#if pushRegistered}}{{else}}style="display: none;"{{/if}}>
+          <div class="media-body fi-unlink">
+            Sign out
+          </div>
+        </a>
+        <a href="#" data-transition="slide-in" id="signInPush" {{#if pushRegistered}}style="display: none;"{{/if}}>
           <div class="media-body fi-star">
             Sign in
           </div>
         </a>
       </li>
       <li class="table-view-cell media">
-        <a href="#" data-transition="slide-in">
+        <a href="#" data-transition="slide-in" id="sendPosition">
           <div class="media-body fi-marker">
             Send position
           </div>
@@ -55,7 +60,7 @@
       </li>
       <li class="table-view-cell media">
         <a class="navigate-right" href="#history" data-transition="slide-in">
-          <span class="badge">{{ pushCount }}</span>
+          <span class="badge" id="pushCount">{{ history.pushesCount }}</span>
           <div class="media-body fi-comments">
             Push history
           </div>
@@ -102,78 +107,14 @@
 
 <script id="history-tpl" type="text/template">
  <ul class="table-view">
+ {{#each pushes}}
   <li class="table-view-cell media">
     <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+      <strong>{{date}}</strong>
+      <p><pre>{{message}}</pre></p>
     </div>
   </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-   <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
-  <li class="table-view-cell media">
-    <div class="media-body">
-      23.4.2014 12:05
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </li>
+ {{/each}}
 </ul>
 </script>
 

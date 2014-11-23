@@ -13,17 +13,52 @@ Settings.prototype.template = Handlebars.compile($('#settings-tpl').html())
 # Create services
 historyService  = new HistoryService()
 settingsService = new SettingsService()
-pushService     = new PushService()
+pushService     = new PushService(settingsService, historyService)
 
 # Local functions
+sendToChattyCrow = (pushId, lat, lon, cb) ->
+ # Try to send via ajax to server!
+ $.ajax
+  url: "#{settingsService.hostUrl}/locations".replace('//', '/')
+  method: "POST"
+  headers:
+    'Contact-Token': settingsService.contactToken
+  data: JSON.stringify
+    contact: pushId
+    latitude: lat
+    longitude: lon
+  contentType: "application/json; charset=utf-8"
+  dataType: 'json'
+  success: (data) ->
+    cb null, data
+  error: (data) ->
+    cb data, null
+
+# React to APNS event
+apn_event = (e) ->
+ alert e.payload
+
+# React to gcm events
+gcm_event = (e) ->
+ switch e.event
+   when 'registered'
+     pushService.storePushId(e.regid)
+   when 'message'
+     pushService.pushRecv e
+
+# Show informations
 showAbout = (evt) ->
   evt.preventDefault()
   alert('(c) Strnadj, 2014')
 
-exitApp = (evt) ->
+# Clear history BTN
+clearHistory = (evt) ->
   evt.preventDefault()
-  navigator.app.exitApp()
+  historyService.clearHistory()
+  alert('History cleared')
+  window.location = '#'
 
+# Dynamically change title text
 changeTitleText = (text) ->
   $('.text-second').html(text)
   # Start fade in / fade out
@@ -70,8 +105,8 @@ document.addEventListener 'deviceready', ->
   FastClick.attach(document.body)
 
   # Menu Actions
-  $('a.about').on('click', showAbout)
-  $('a.exitApp').on('click', exitApp)
+  $('#aboutBtn').on('click', showAbout)
+  $('#clearHistory').on('click', clearHistory)
 
   # Override default notifications
   if navigator.notification

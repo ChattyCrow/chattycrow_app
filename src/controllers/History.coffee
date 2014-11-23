@@ -5,7 +5,7 @@ class History
     @render
 
   render: ->
-    @el.html(@template())
+    @el.html(@template(@service))
     this
 
 

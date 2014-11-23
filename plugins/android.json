@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"WebViewDebug\"><param name=\"android-package\" value=\"com.jamiestarke.webviewdebug.WebViewDebug\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpinnerDialog\"><param name=\"android-package\" value=\"hu.dpal.phonegap.plugins.SpinnerDialog\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -118,6 +122,9 @@
             "PACKAGE_NAME": "com.netbrick.chattycrow"
         },
         "com.jamiestarke.webviewdebug": {
+            "PACKAGE_NAME": "com.netbrick.chattycrow"
+        },
+        "hu.dpal.phonegap.plugins.SpinnerDialog": {
             "PACKAGE_NAME": "com.netbrick.chattycrow"
         }
     },

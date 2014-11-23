@@ -9,12 +9,23 @@
     </author>
     <content src="index.html" />
     <icon src="res/icon.png" />
+    <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <access origin="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />
-
+    <feature name="WebView Debug">
+        <param name="id" value="com.jamiestarke.webviewdebug" />
+        <param name="url" value="https://github.com/jrstarke/webview-debug.git#:." />
+    </feature>
+    <feature name="PushPlugin">
+        <param name="id" value="com.phonegap.plugins.PushPlugin" />
+    </feature>
+    <feature name="SpinnerDialog">
+        <param name="id" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
+        <param name="url" value="https://github.com/Paldom/SpinnerDialog.git#:." />
+    </feature>
     <feature name="Console">
         <param name="id" value="org.apache.cordova.console" />
     </feature>
@@ -32,8 +43,5 @@
     </feature>
     <feature name="StatusBar">
         <param name="id" value="org.apache.cordova.statusbar" />
-    </feature>
-    <feature name="PushPlugin">
-        <param name="id" value="com.phonegap.plugins.PushPlugin" />
     </feature>
 </widget>

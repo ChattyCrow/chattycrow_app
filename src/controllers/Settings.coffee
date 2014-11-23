@@ -3,7 +3,6 @@ class Settings
     @service = service
     @el = $('<div/>')
 
-    # Prevent clojure
     that = this
     @el.on 'click', '#saveSettings', ->
       that.saveSettings()

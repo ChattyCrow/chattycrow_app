@@ -1,11 +1,39 @@
 class PushService
+  # Constructor
+  constructor: (settings, history) ->
+    @settingsService = settings
+    @historyService  = history
+
+  # Return push id
+  getPushId: ->
+    window.localStorage.getItem('pushId')
+
   isRegistered: ->
-    window.localStorage.getItem('pushId') != null
+    @getPushId() != null
+
+  # Unregister push
+  unregister: ->
+    that = this
+
+    # Unregister handler
+    window.plugins.pushNotification.unregister that.success, that.fail
+
+    # Remove from storage
+    window.localStorage.removeItem('pushId')
+
+    # Update view
+    $('#signOutPush').hide()
+    $('#signInPush').show()
+
+    # Alert
+    alert 'Sucessfully unregistered'
 
   # Register pushID
   register: ->
-    # Clojure
     that = this
+
+    # Show spinner
+    window.plugins.spinnerDialog.show(null, 'Registering Push Id')
 
     # Push notifications
     @pushNotification = window.plugins.pushNotification
@@ -18,7 +46,7 @@ class PushService
           that.fail,
           {
             "senderID" : "286801227267",
-            "ecb" : "pushService.gcm_event"
+            "ecb" : "gcm_event"
           }
         )
       when 'win32nt'
@@ -32,7 +60,7 @@ class PushService
             "badge":"true",
             "sound":"true",
             "alert":"true",
-            "ecb":"pushService.apn_event"
+            "ecb":"apn_event"
           }
         )
 
@@ -44,20 +72,33 @@ class PushService
    fail: (evt) ->
      console.log evt
 
+   # Reaction to push
+   pushRecv: (push) ->
+     @historyService.addPush push
+     # Save push
+     alert 'Push recieved'
+
    # Store local push ID
    storePushId: (id) ->
      # Persist pushId in local storage
      window.localStorage.setItem('pushId', id)
-     $('#log').html(id)
 
-   # React to APNS event
-   apn_event: (e) ->
-     alert e.payload
+     # Try to register
+     sendToChattyCrow id, 0.0, 0.0, (err, data) ->
+       # Hide dialog
+       window.plugins.spinnerDialog.hide()
 
-   # React to gcm events
-   gcm_event: (e) ->
-     switch e.event
-       when 'registered'
-         @storePushId(e.regid)
-       when 'message'
-         alert 'message'
+       # Callback
+       if err
+         # Remove push ID
+         window.localStorage.removeItem('pushId')
+
+         # Alert about failed registration
+         alert 'Registration fail'
+       else
+         # Alert fail
+         alert 'Registration success'
+
+         # Update view
+         $('#signOutPush').show()
+         $('#signInPush').hide()

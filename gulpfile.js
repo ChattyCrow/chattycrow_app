@@ -2,6 +2,7 @@ var gulp    = require('gulp');
 var coffee  = require('gulp-coffee');
 var plumber = require('gulp-plumber');
 var gutil   = require('gulp-util');
+var jshint  = require('gulp-jshint');
 
 gulp.task('coffee-app', function() {
   return gulp.src('src/**/*.coffee')
@@ -27,8 +28,14 @@ gulp.task('coffee-services', function() {
       .pipe(gulp.dest('./www/services/'));
 });
 
-gulp.task('watch', function() {
-  return gulp.watch('src/**/*.coffee', ['coffee-app', 'coffee-controllers', 'coffee-services']);
+gulp.task('jshint', function() {
+  return gulp.src(['www/app.js', 'www/controllers/*.js', 'www/services/*.js'])
+             .pipe(jshint())
+             .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', [ 'coffee-app', 'coffee-controllers', 'coffee-services', 'watch' ]);
+gulp.task('watch', function() {
+  return gulp.watch('src/**/*.coffee', ['coffee-app', 'coffee-controllers', 'coffee-services', 'jshint']);
+});
+
+gulp.task('default', [ 'coffee-app', 'coffee-controllers', 'coffee-services', 'jshint', 'watch' ]);

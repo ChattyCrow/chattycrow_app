@@ -4,7 +4,6 @@ class Home
     @pushService    = pushService
     @el = $('<div/>')
     @el.on 'click', '#signInPush', (evt) ->
-      # Don't move
       evt.preventDefault()
 
       # Push services
@@ -13,8 +12,32 @@ class Home
       else
         pushService.register()
 
+    @el.on 'click', '#signOutPush', (evt) ->
+      evt.preventDefault()
+      pushService.unregister()
+
+    @el.on 'click', '#sendPosition', (evt) ->
+      evt.preventDefault()
+      if pushService.isRegistered()
+        navigator.geolocation.getCurrentPosition(
+          (position) ->
+            sendToChattyCrow pushService.getPushId(), position.coords.latitude, position.coords.longitude, (err, suc) ->
+              if err
+                alert 'Error while sending position'
+              else
+                alert 'Position has been sent'
+        ,
+          () ->
+            alert('Error getting location')
+        )
+      else
+        alert 'Please register push ID'
+
     @render
 
   render: ->
-    @el.html(@template(@historyService))
+    @el.html(@template
+      history: @historyService
+      pushRegistered: @pushService.isRegistered()
+    )
     this

@@ -8,7 +8,7 @@ History = (function() {
   }
 
   History.prototype.render = function() {
-    this.el.html(this.template());
+    this.el.html(this.template(this.service));
     return this;
   };
 

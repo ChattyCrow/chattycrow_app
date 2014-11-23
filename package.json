@@ -1,0 +1,28 @@
+{
+  "name": "chattycrow_app",
+  "version": "1.0.0",
+  "description": "Demo cordova application",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jshint-stylish": "^1.0.0"
+    "gulp": "^3.8.10",
+    "gulp-coffee": "^2.2.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-util": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChattyCrow/chattycrow_app.git"
+  },
+  "author": "Strnadj <jan.strnadek@gmail.com> (http://strnadj.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChattyCrow/chattycrow_app/issues"
+  },
+  "homepage": "https://github.com/ChattyCrow/chattycrow_app"
+}

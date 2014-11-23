@@ -1,4 +1,4 @@
-var backButton, changeTitleText, exitApp, historyService, pushService, settingsService, showAbout, slider;
+var apn_event, backButton, changeTitleText, clearHistory, gcm_event, historyService, pushService, sendToChattyCrow, settingsService, showAbout, slider;
 
 slider = new PageSlider($('.content'));
 
@@ -16,16 +16,54 @@ historyService = new HistoryService();
 
 settingsService = new SettingsService();
 
-pushService = new PushService();
+pushService = new PushService(settingsService, historyService);
+
+sendToChattyCrow = function(pushId, lat, lon, cb) {
+  return $.ajax({
+    url: ("" + settingsService.hostUrl + "/locations").replace('//', '/'),
+    method: "POST",
+    headers: {
+      'Contact-Token': settingsService.contactToken
+    },
+    data: JSON.stringify({
+      contact: pushId,
+      latitude: lat,
+      longitude: lon
+    }),
+    contentType: "application/json; charset=utf-8",
+    dataType: 'json',
+    success: function(data) {
+      return cb(null, data);
+    },
+    error: function(data) {
+      return cb(data, null);
+    }
+  });
+};
+
+apn_event = function(e) {
+  return alert(e.payload);
+};
+
+gcm_event = function(e) {
+  switch (e.event) {
+    case 'registered':
+      return pushService.storePushId(e.regid);
+    case 'message':
+      return pushService.pushRecv(e);
+  }
+};
 
 showAbout = function(evt) {
   evt.preventDefault();
   return alert('(c) Strnadj, 2014');
 };
 
-exitApp = function(evt) {
+clearHistory = function(evt) {
   evt.preventDefault();
-  return navigator.app.exitApp();
+  historyService.clearHistory();
+  alert('History cleared');
+  return window.location = '#';
 };
 
 changeTitleText = function(text) {
@@ -71,8 +109,8 @@ document.addEventListener('deviceready', function() {
   StatusBar.backgroundColorByHexString('#ffffff');
   StatusBar.styleDefault();
   FastClick.attach(document.body);
-  $('a.about').on('click', showAbout);
-  $('a.exitApp').on('click', exitApp);
+  $('#aboutBtn').on('click', showAbout);
+  $('#clearHistory').on('click', clearHistory);
   if (navigator.notification) {
     return window.alert = function(message) {
       return navigator.notification.alert(message, null, 'ChattyCrow', 'OK');
