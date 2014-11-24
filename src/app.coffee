@@ -56,7 +56,6 @@ clearHistory = (evt) ->
   evt.preventDefault()
   historyService.clearHistory()
   alert('History cleared')
-  window.location = '#'
 
 # Dynamically change title text
 changeTitleText = (text) ->
