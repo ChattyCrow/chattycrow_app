@@ -21,8 +21,10 @@
         <splash height="960" src="res/screens/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
-    <platform name="Win32NT">
-        <splash height="480" src="res/screens/windows-phone/screen-portrait.png" width="320" />
+    <platform name="wp8">
+        <icon src="res/wp_icon.png" width="99" height="99" />
+        <icon src="res/wp_background.png" widht="159" height="159" />
+        <splash src="res/screens/windows-phone/screen-portrait.png" width="768" height="1280" />
     </platform>
     <platform name="android">
         <splash density="port-xhdpi" height="1280" src="res/screens/android/screen-xhdpi-portrait.png" width="720" />

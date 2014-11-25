@@ -36,7 +36,8 @@ sendToChattyCrow = (pushId, lat, lon, cb) ->
 
 # React to APNS event
 apn_event = (e) ->
- alert e.payload
+  console.log e
+  pushService.pushRecv e
 
 # React to gcm events
 gcm_event = (e) ->

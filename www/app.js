@@ -42,7 +42,8 @@ sendToChattyCrow = function(pushId, lat, lon, cb) {
 };
 
 apn_event = function(e) {
-  return alert(e.payload);
+  console.log(e);
+  return pushService.pushRecv(e);
 };
 
 gcm_event = function(e) {
@@ -62,8 +63,7 @@ showAbout = function(evt) {
 clearHistory = function(evt) {
   evt.preventDefault();
   historyService.clearHistory();
-  alert('History cleared');
-  return window.location = '#';
+  return alert('History cleared');
 };
 
 changeTitleText = function(text) {
