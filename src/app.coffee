@@ -103,12 +103,6 @@ settingsService.initialize().done ->
   # Start routing
   router.start()
 
-# Account charts
-$('.chart').easyPieChart
-  animate: 1000
-  onStep: (value) ->
-    $(this.el).find('span').text(~~value)
-
 # Push function
 document.addEventListener 'deviceready', ->
   StatusBar.overlaysWebView( false )
