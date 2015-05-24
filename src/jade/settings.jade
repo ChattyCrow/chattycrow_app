@@ -1,0 +1,10 @@
+.card(style="padding: 0.3rem;")
+  form
+    label(for="serverHost") API host:
+    input(type="text", id="serverHost", value="{{ hostUrl }}")
+
+    label(for="contactToken") Contact token:
+    input(type="text", id="contactToken", value="{{ contactToken }}")
+
+    button.btn.btn-positive.btn-block#saveSettings Save
+    button.btn.btn-primary.btn-block#scanQRCode Scan QR Code
