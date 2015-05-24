@@ -5,5 +5,5 @@ cordova plugin add cordova-plugin-device
 cordova plugin add cordova-plugin-console
 cordova plugin add hu.dpal.phonegap.plugins.SpinnerDialog
 cordova plugin add phonegap-plugin-barcodescanner
-cordova plugin add com.clone.phonegap.plugins.PushPlugin
+cordova plugin add com.clone.phonegap.plugins.pushplugin
 cordova plugin add cordova-plugin-statusbar
