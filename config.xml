@@ -12,6 +12,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
     <platform name="ios">
         <splash height="1334" src="res/screens/ios/Default-667h.png" width="750" />
         <splash height="2208" src="res/screens/ios/Default-736h.png" width="1242" />
@@ -41,7 +42,6 @@
     <access origin="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />
-    <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^2.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="^1.0.0" />
     <plugin name="cordova-plugin-dialogs" spec="^1.1.0" />
@@ -50,4 +50,5 @@
     <plugin name="hu.dpal.phonegap.plugins.SpinnerDialog" spec="https://github.com/Paldom/SpinnerDialog.git#:." />
     <plugin name="com.phonegap.plugins.barcodescanner" spec="^2.0.1" />
     <plugin name="com.clone.phonegap.plugins.PushPlugin" spec="^2.4.1" />
+    <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
 </widget>

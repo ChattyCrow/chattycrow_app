@@ -4,6 +4,9 @@ html(lang='en')
     title ChattyCrow
     meta(charset='utf-8')
 
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='white')
+
     //- Inject CSS
     // ui:css
     // endinject
@@ -21,7 +24,7 @@ html(lang='en')
           span.title-image.text-first(style='opacity: 1.0') ChattyCrow
           span.title-image.text-second(style='opacity: 0.0') ChattyCrow
 
-    .content
+    .content.scrollable
 
     nav.bar.bar-tab
       a#aboutBtn.tab-item(href='#') About
