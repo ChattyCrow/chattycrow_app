@@ -53,10 +53,9 @@ showAbout = (evt) ->
   alert('(c) Strnadj, 2014')
 
 # Clear history BTN
-clearHistory = (evt) ->
+showLicense = (evt) ->
   evt.preventDefault()
-  historyService.clearHistory()
-  alert('History cleared')
+  alert('MIT')
 
 # Dynamically change title text
 changeTitleText = (text) ->
@@ -106,7 +105,7 @@ document.addEventListener 'deviceready', ->
 
   # Menu Actions
   $('#aboutBtn').on('click', showAbout)
-  $('#clearHistory').on('click', clearHistory)
+  $('#licenseBtn').on('click', showLicense)
 
   # Try to register push ID
   pushService.register()

@@ -41,22 +41,13 @@
     <access origin="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />
-
-    <feature name="PushPlugin">
-        <param name="id" value="com.phonegap.plugins.PushPlugin" />
-    </feature>
-    <feature name="BarcodeScanner">
-        <param name="id" value="com.phonegap.plugins.barcodescanner" />
-    </feature>
-    <feature name="SpinnerDialog">
-        <param name="id" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
-        <param name="url" value="https://github.com/Paldom/SpinnerDialog.git#:." />
-    </feature>
-
     <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^2.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="^1.0.0" />
     <plugin name="cordova-plugin-dialogs" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.0.0" />
     <plugin name="cordova-plugin-console" spec="^1.0.0" />
+    <plugin name="hu.dpal.phonegap.plugins.SpinnerDialog" spec="https://github.com/Paldom/SpinnerDialog.git#:." />
+    <plugin name="com.phonegap.plugins.barcodescanner" spec="^2.0.1" />
+    <plugin name="com.clone.phonegap.plugins.PushPlugin" spec="^2.4.1" />
 </widget>
