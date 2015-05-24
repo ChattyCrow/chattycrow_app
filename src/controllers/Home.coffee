@@ -3,18 +3,6 @@ class Home
     @historyService = historyService
     @pushService    = pushService
     @el = $('<div/>')
-    @el.on 'click', '#signInPush', (evt) ->
-      evt.preventDefault()
-
-      # Push services
-      if pushService.isRegistered()
-        alert 'Already registered'
-      else
-        pushService.register()
-
-    @el.on 'click', '#signOutPush', (evt) ->
-      evt.preventDefault()
-      pushService.unregister()
 
     @el.on 'click', '#sendPosition', (evt) ->
       evt.preventDefault()

@@ -6,7 +6,8 @@ backButton = $('#backButton')
 
 # Prepare compiled templates
 Home.prototype.template = Handlebars.compile($('#home-tpl').html())
-About.prototype.template = Handlebars.compile($('#about-tpl').html())
+Account.prototype.template = Handlebars.compile($('#account-tpl').html())
+About.prototype.template = Handlebars.compile($('#informations-tpl').html())
 History.prototype.template = Handlebars.compile($('#history-tpl').html())
 Settings.prototype.template = Handlebars.compile($('#settings-tpl').html())
 
@@ -76,7 +77,7 @@ settingsService.initialize().done ->
     changeTitleText('ChattyCrow')
 
   # About page
-  router.addRoute 'about', ->
+  router.addRoute 'informations', ->
     slider.slidePage(new About().render().el)
     backButton.show()
     changeTitleText('About')

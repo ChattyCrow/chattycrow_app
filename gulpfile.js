@@ -48,13 +48,13 @@ gulp.task('jshint', function() {
 });
 
 /* Copy images */
-gulp.task('images', function() {
+gulp.task('libs', function() {
   return gulp.src('./src/lib/**/*.js')
      .pipe(gulp.dest('./www/app/lib/'));
 });
 
 /* Copy libs */
-gulp.task('libs', function() {
+gulp.task('images', function() {
   return gulp.src('./res/images/*.*')
      .pipe(gulp.dest('./www/images/'));
 });

@@ -34,12 +34,17 @@ html(lang='en')
     script#home-tpl(type='text/template')
       include jade/home.jade
 
-    script#about-tpl(type='text/template')
+    script#account-tpl(type='text/template')
+      include jade/account.jade
+
+    script#informations-tpl(type='text/template')
+      include jade/informations.jade
 
     script#settings-tpl(type='text/template')
       include jade/settings.jade
 
     script#history-tpl(type='text/template')
+      include jade/history.jade
 
     //- Inject JS
     script(src="cordova.js")
