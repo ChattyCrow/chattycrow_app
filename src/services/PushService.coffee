@@ -21,13 +21,6 @@ class PushService
     # Remove from storage
     window.localStorage.removeItem('pushId')
 
-    # Update view
-    $('#signOutPush').hide()
-    $('#signInPush').show()
-
-    # Alert
-    alert 'Sucessfully unregistered'
-
   # Register pushID
   register: ->
     that = this

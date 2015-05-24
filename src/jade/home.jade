@@ -1,0 +1,16 @@
+ul.table-view
+  mixin link(id, title, info, image, href)
+    li.table-view-cell.media
+      a.navigate-right(href= href ? '#'+href : '#', id=id, data-transition='slide-in')
+        if id == 'history'
+          .span.badge#badgeCount {{ history.pushesCount }}
+
+        .media-object.pull-left.menu-image(class=image)
+        .media-body
+          = title
+          p= info
+
+  +link('account', 'Account', 'Account informations', 'account')
+  +link('history', 'Push history', 'History of pushes', 'history')
+  +link('settings', 'Settings', 'Server settings', 'settings', 'settings')
+  +link('informations', 'Informations', 'App informations', 'informations')

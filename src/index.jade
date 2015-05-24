@@ -1,0 +1,50 @@
+doctype html
+html(lang='en')
+  head
+    title ChattyCrow
+    meta(charset='utf-8')
+
+    //- Inject CSS
+    // ui:css
+    // endinject
+    // app:css
+    // endinject
+    // bower:css
+    // endinject
+
+  body
+    header.bar.bar-nav
+      a#backButton.icon.icon-left-nav.pull-left(style="display: none", href="#")
+
+      .title
+        .title-content
+          span.title-image.text-first(style='opacity: 1.0') ChattyCrow
+          span.title-image.text-second(style='opacity: 0.0') ChattyCrow
+
+    .content
+
+    nav.bar.bar-tab
+      a#aboutBtn.tab-item(href='#') About
+      a#clearHistory.tab-item(href='#') License
+
+    //- Include templates jade files
+    script#home-tpl(type='text/template')
+      include jade/home.jade
+
+    script#about-tpl(type='text/template')
+
+    script#settings-tpl(type='text/template')
+
+    script#history-tpl(type='text/template')
+
+    //- Inject JS
+    script(src="cordova.js")
+
+    // bower:js
+    // endinject
+    // ui:js
+    // endinject
+    // app:js
+    // endinject
+    // main:js
+    // endinject

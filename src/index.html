@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+      <!-- bower:css -->
+      <!-- endinject -->
+      <!-- app:css -->
+      <!-- endinject -->
+  </head>
+  <body>
+<header class="bar bar-nav">
+  <a class="btn btn-link btn-nav pull-left" style="display: none;" id="backButton" href="#">
+    <span class="icon icon-left-nav"></span>
+  </a>
+  <div class="title">
+    <div class="title-content">
+      <span class="title-image text-first" style="opacity: 1.0;">
+        ChattyCrow
+      </span>
+      <span class="title-image text-second" style="opacity: 0.0;">
+        ChattyCrow
+      </span>
+    </div>
+  </div>
+</header>
+<div class="content">
+
+</div>
+<nav class="bar bar-tab">
+  <a class="tab-item" id="aboutBtn" href="#">
+    About
+  </a>
+  <a class="tab-item" id="clearHistory" href="#">
+    Terms &amp; Services
+  </a>
+</nav>
+
+<script id="home-tpl" type="text/template">
+<div class="card">
+    <ul class="table-view">
+      <li class="table-view-cell media">
+        <a href="#" data-transition="slide-in" id="signOutPush" {{#if pushRegistered}}{{else}}style="display: none;"{{/if}}>
+          <div class="media-body fi-unlink">
+            Sign out
+          </div>
+        </a>
+        <a href="#" data-transition="slide-in" id="signInPush" {{#if pushRegistered}}style="display: none;"{{/if}}>
+          <div class="media-body fi-star">
+            Sign in
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a href="#" data-transition="slide-in" id="sendPosition">
+          <div class="media-body fi-marker">
+            Send position
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a class="navigate-right" href="#history" data-transition="slide-in">
+          <span class="badge" id="pushCount">{{ history.pushesCount }}</span>
+          <div class="media-body fi-comments">
+            Push history
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a class="navigate-right" href="#settings" data-transition="slide-in">
+          <div class="media-body fi-wrench">
+            Settings
+          </div>
+        </a>
+      </li>
+      <li class="table-view-cell media">
+        <a href="#about" class="navigate-right" data-transition="slide-in">
+          <div class="media-body fi-lightbulb">
+            Help
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="log"></div>
+</script>
+
+<script id="about-tpl" type="text/template">
+<div class="card" style="padding: 1rem; text-align: justify;">
+  <h2>About</h2>
+  <p>This is an example application for iOS, Android and Windows phone to register push ID and receive push ID on these platforms.
+</div>
+</script>
+
+<script id="settings-tpl" type="text/template">
+<div class="card" style="padding: 0.3rem;">
+  <form>
+    <label for="serverHost">API Host:</label>
+    <input type="text" id="serverHost" value="{{ hostUrl }}" />
+    <label for="contactToken">Contact token:</label>
+    <input type="text" id="contactToken" value="{{ contactToken }}" />
+    <button class="btn btn-positive btn-block" id="saveSettings">Save</button>
+    <button class="btn btn-primary btn-block" id="scanQRCode">QR Code</button>
+  </form>
+</div>
+</script>
+
+<script id="history-tpl" type="text/template">
+ <ul class="table-view">
+ {{#each pushes}}
+  <li class="table-view-cell media">
+    <div class="media-body">
+      <strong>{{date}}</strong>
+      <p><pre>{{message}}</pre></p>
+    </div>
+  </li>
+ {{/each}}
+</ul>
+</script>
+
+    <!-- bower:js -->
+    <!-- endinject -->
+    <!-- app:js -->
+    <!-- endinject -->
+  </body>
+</html>

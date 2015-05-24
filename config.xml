@@ -2,17 +2,19 @@
 <widget id="com.chattycrow.demo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ChattyCrow</name>
     <description>
-      A sample Chatty Crow application.
-    </description>
+    A sample Chatty Crow application.
+  </description>
     <author email="dev@chattycrow.com" href="https://chattycrow.com">
-        ChattyCrow Team.
-    </author>
+      ChattyCrow Team.
+  </author>
     <content src="index.html" />
     <icon src="res/icon.png" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <platform name="ios">
+        <splash height="1334" src="res/screens/ios/Default-667h.png" width="750" />
+        <splash height="2208" src="res/screens/ios/Default-736h.png" width="1242" />
         <splash height="1136" src="res/screens/ios/Default-568h@2x~iphone.png" width="640" />
         <splash height="1136" src="res/screens/ios/Default-Landscape@2x~ipad.png" width="640" />
         <splash height="1136" src="res/screens/ios/Default-Landscape~ipad.png" width="640" />
@@ -22,9 +24,9 @@
         <splash height="480" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
     <platform name="wp8">
-        <icon src="res/wp_icon.png" width="99" height="99" />
-        <icon src="res/wp_background.png" width="159" height="159" />
-        <splash src="res/screens/windows-phone/screen-portrait.png" width="768" height="1280" />
+        <icon height="99" src="res/wp_icon.png" width="99" />
+        <icon height="159" src="res/wp_background.png" width="159" />
+        <splash height="1280" src="res/screens/windows-phone/screen-portrait.png" width="768" />
     </platform>
     <platform name="android">
         <splash density="port-xhdpi" height="1280" src="res/screens/android/screen-xhdpi-portrait.png" width="720" />
@@ -39,6 +41,7 @@
     <access origin="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />
+
     <feature name="PushPlugin">
         <param name="id" value="com.phonegap.plugins.PushPlugin" />
     </feature>
@@ -49,22 +52,11 @@
         <param name="id" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
         <param name="url" value="https://github.com/Paldom/SpinnerDialog.git#:." />
     </feature>
-    <feature name="Console">
-        <param name="id" value="org.apache.cordova.console" />
-    </feature>
-    <feature name="Device">
-        <param name="id" value="org.apache.cordova.device" />
-    </feature>
-    <feature name="Notification">
-        <param name="id" value="org.apache.cordova.dialogs" />
-    </feature>
-    <feature name="Geolocation">
-        <param name="id" value="org.apache.cordova.geolocation" />
-    </feature>
-    <feature name="Splashscreen">
-        <param name="id" value="org.apache.cordova.splashscreen" />
-    </feature>
-    <feature name="StatusBar">
-        <param name="id" value="org.apache.cordova.statusbar" />
-    </feature>
+
+    <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="^2.0.0" />
+    <plugin name="cordova-plugin-geolocation" spec="^1.0.0" />
+    <plugin name="cordova-plugin-dialogs" spec="^1.1.0" />
+    <plugin name="cordova-plugin-device" spec="^1.0.0" />
+    <plugin name="cordova-plugin-console" spec="^1.0.0" />
 </widget>

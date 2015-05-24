@@ -1,0 +1,23 @@
+{
+  "name": "chattycrow_app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ChattyCrow/chattycrow_app",
+  "authors": [
+    "Strandj <jan.strnadek@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.6",
+    "handlebars": "~3.0.3",
+    "pageslider": "~0.3.8",
+    "jquery": "~2.1.4",
+    "ratchet": "~2.0.2"
+  }
+}

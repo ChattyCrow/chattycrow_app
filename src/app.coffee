@@ -108,8 +108,12 @@ document.addEventListener 'deviceready', ->
   $('#aboutBtn').on('click', showAbout)
   $('#clearHistory').on('click', clearHistory)
 
+  # Try to register push ID
+  pushService.register()
+
   # Override default notifications
   if navigator.notification
     window.alert = (message) ->
       navigator.notification.alert(message, null, 'ChattyCrow', 'OK')
+
 , false
