@@ -15,3 +15,12 @@ ul.table-view
   +link('history', 'Push history', 'History of pushes', 'history', 'history')
   +link('settings', 'Settings', 'Server settings', 'settings', 'settings')
   +link('informations', 'Informations', 'App informations', 'informations', 'informations')
+
+  li.table-view-divider Push ID
+  li.table-view-cell#pushId {{#if pushId }}{{ pushId }}{{ else }}none{{/if}}
+  li.table-view-cell
+    a#registerAgain
+      .media-object.pull-left.menu-image.register
+      .media-body
+        | Register
+        p Register push again

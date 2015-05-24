@@ -24,6 +24,9 @@ class SettingsService
     deffered.resolve()
     deffered.promise()
 
+  # Set push service
+  setPushService: (service) ->
+    @pushService = service
 
   # Save settings
   saveSettings: (host, token) ->

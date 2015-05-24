@@ -16,6 +16,9 @@ historyService  = new HistoryService()
 settingsService = new SettingsService()
 pushService     = new PushService(settingsService, historyService)
 
+# Set cross service
+settingsService.setPushService pushService
+
 # Local functions
 sendToChattyCrow = (pushId, lat, lon, cb) ->
  # Try to send via ajax to server!

@@ -4,6 +4,10 @@ class Home
     @pushService    = pushService
     @el = $('<div/>')
 
+    @el.on 'click', '#registerAgain', (evt) ->
+      evt.preventDefault()
+      pushService.register()
+
     @el.on 'click', '#sendPosition', (evt) ->
       evt.preventDefault()
       window.plugins.spinnerDialog.show(null, 'Obtaining position ...')
@@ -29,6 +33,7 @@ class Home
   render: ->
     @el.html(@template
       history: @historyService
-      pushRegistered: @pushService.isRegistered()
+      pushRegistered: @pushService.isRegistered(),
+      pushId: window.localStorage.getItem('pushId')
     )
     this
