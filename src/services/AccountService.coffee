@@ -2,9 +2,14 @@ class AccountService
   # Constructor
   constructor: (settings) ->
     @settingsService = settings
+    @lastEmail = window.localStorage.getItem 'lastEmail'
 
   # Get account informations
   getInfo: (email, password, cb) ->
+    # Set last email
+    @lastEmail = email
+    window.localStorage.setItem 'lastEmail', email, null
+
     # Try to send via ajax to server!
     $.ajax
       url: "#{settingsService.hostUrl}/user".replace('//', '/')

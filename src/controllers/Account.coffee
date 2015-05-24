@@ -51,5 +51,5 @@ class Account
               $(this.el).find('span').text(~~value)
 
   render: ->
-    @el.html(@template())
+    @el.html(@template(@service))
     this

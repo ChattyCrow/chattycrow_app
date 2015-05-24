@@ -1,0 +1,8 @@
+ul.table-view
+  | {{#each pushes}}
+  li.table-view-cell.media
+    .media-body
+      strong {{ date }}
+      p
+        pre {{ message }}
+  | {{/each}}

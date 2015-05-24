@@ -1,7 +1,7 @@
 .card(style="padding: 0.3rem;")
   form#loginForm
     label(for="email") Email:
-    input(type="text", id="email", value="")
+    input(type="text", id="email", value="{{ lastEmail }}")
 
     label(for="password") Password:
     input(type="password", id="password")

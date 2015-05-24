@@ -76,9 +76,6 @@ class PushService
      # Persist pushId in local storage
      window.localStorage.setItem('pushId', id)
 
-     # Set to element
-     $('#pushId').html(id)
-
      # Try to register
      sendToChattyCrow id, 0.0, 0.0, (err, data) ->
        # Hide dialog
@@ -92,5 +89,8 @@ class PushService
          # Alert about failed registration
          alert 'Registration fail'
        else
+         # Set to element
+         $('#pushId').html(id)
+
          # Alert fail
          alert 'Registration success'
