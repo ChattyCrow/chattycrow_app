@@ -76,6 +76,12 @@ settingsService.initialize().done ->
     backButton.hide()
     changeTitleText('ChattyCrow')
 
+  # Account
+  router.addRoute 'account', ->
+    slider.slidePage(new Account().render().el)
+    backButton.show()
+    changeTitleText('Account')
+
   # About page
   router.addRoute 'informations', ->
     slider.slidePage(new About().render().el)
@@ -96,6 +102,12 @@ settingsService.initialize().done ->
 
   # Start routing
   router.start()
+
+# Account charts
+$('.chart').easyPieChart
+  animate: 1000
+  onStep: (value) ->
+    $(this.el).find('span').text(~~value)
 
 # Push function
 document.addEventListener 'deviceready', ->
