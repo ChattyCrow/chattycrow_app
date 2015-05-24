@@ -44,6 +44,11 @@ apn_event = (e) ->
   console.log e
   pushService.pushRecv e
 
+# React to WP8 events
+wp_event = (e) ->
+  console.log "Recv WP8 #{e}"
+
+
 # React to gcm events
 gcm_event = (e) ->
  switch e.event

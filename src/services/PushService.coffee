@@ -43,7 +43,14 @@ class PushService
           }
         )
       when 'win32nt'
-
+        @pushNotification.register(
+          that.success,
+          that.fail,
+          {
+            "channelName" : "test",
+            "ecb" : "wp_event"
+          }
+        )
       else
         # Ios
         @pushNotification.register(
@@ -59,7 +66,9 @@ class PushService
 
    # Success event
    success: (evt) ->
-     null
+    if evt.uri
+      console.log('registered###' + evt.uri)
+    null
 
    # Fail!
    fail: (evt) ->
