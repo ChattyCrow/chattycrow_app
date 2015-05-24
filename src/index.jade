@@ -32,19 +32,24 @@ html(lang='en')
 
     //- Include templates jade files
     script#home-tpl(type='text/template')
-      include jade/home.jade
+      .scroll
+        include jade/home.jade
 
     script#account-tpl(type='text/template')
-      include jade/account.jade
+      .scroll
+        include jade/account.jade
 
     script#informations-tpl(type='text/template')
-      include jade/informations.jade
+      .scroll
+        include jade/informations.jade
 
     script#settings-tpl(type='text/template')
-      include jade/settings.jade
+      .scroll
+        include jade/settings.jade
 
     script#history-tpl(type='text/template')
-      include jade/history.jade
+      .scroll
+        include jade/history.jade
 
     //- Inject JS
     script(src="cordova.js")

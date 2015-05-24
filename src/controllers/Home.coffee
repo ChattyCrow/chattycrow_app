@@ -10,8 +10,8 @@ class Home
 
     @el.on 'click', '#sendPosition', (evt) ->
       evt.preventDefault()
-      window.plugins.spinnerDialog.show(null, 'Obtaining position ...')
       if pushService.isRegistered()
+        window.plugins.spinnerDialog.show(null, 'Obtaining position ...')
         navigator.geolocation.getCurrentPosition(
           (position) ->
             sendToChattyCrow pushService.getPushId(), position.coords.latitude, position.coords.longitude, (err, suc) ->

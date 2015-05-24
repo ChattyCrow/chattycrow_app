@@ -15,6 +15,7 @@ Settings.prototype.template = Handlebars.compile($('#settings-tpl').html())
 historyService  = new HistoryService()
 settingsService = new SettingsService()
 pushService     = new PushService(settingsService, historyService)
+accountService  = new AccountService(settingsService)
 
 # Set cross service
 settingsService.setPushService pushService
@@ -81,7 +82,7 @@ settingsService.initialize().done ->
 
   # Account
   router.addRoute 'account', ->
-    slider.slidePage(new Account().render().el)
+    slider.slidePage(new Account(accountService).render().el)
     backButton.show()
     changeTitleText('Account')
 
