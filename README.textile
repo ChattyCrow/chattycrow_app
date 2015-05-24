@@ -1,0 +1,19 @@
+!https://avatars1.githubusercontent.com/u/9012750?v=3&s=200!
+
+h1. ChattyCrow - Example Cordova mobile application
+
+h2. Instalation
+
+<pre>
+npm install
+bower install
+gulp (run it twice!! ...)
+cordova platform add [ios,wp,android]
+cordova run [ios, wp, android]
+</pre>
+
+
+h2. Libraries
+
+
+h2. Thanks to
