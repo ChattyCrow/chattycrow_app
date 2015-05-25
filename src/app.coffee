@@ -2,14 +2,14 @@
 slider = new PageSlider($('.content'))
 
 # Back button
-backButton = $('#backButton')
+backButton      = $('#backButton')
 clearHistoryBtn = $('#clearHistory')
 
 # Prepare compiled templates
-Home.prototype.template = Handlebars.compile($('#home-tpl').html())
-Account.prototype.template = Handlebars.compile($('#account-tpl').html())
-About.prototype.template = Handlebars.compile($('#informations-tpl').html())
-History.prototype.template = Handlebars.compile($('#history-tpl').html())
+Home.prototype.template     = Handlebars.compile($('#home-tpl').html())
+Account.prototype.template  = Handlebars.compile($('#account-tpl').html())
+About.prototype.template    = Handlebars.compile($('#informations-tpl').html())
+History.prototype.template  = Handlebars.compile($('#history-tpl').html())
 Settings.prototype.template = Handlebars.compile($('#settings-tpl').html())
 
 # Create services
@@ -21,7 +21,7 @@ accountService  = new AccountService(settingsService)
 # Set cross service
 settingsService.setPushService pushService
 
-# Local functions
+# Send position to chatty crow
 sendToChattyCrow = (pushId, lat, lon, cb) ->
   # Try to send via ajax to server!
   $.ajax
@@ -49,7 +49,6 @@ apn_event = (e) ->
 wp_event = (e) ->
   console.log "Recv WP8 #{e}"
 
-
 # React to gcm events
 gcm_event = (e) ->
   switch e.event
@@ -61,7 +60,7 @@ gcm_event = (e) ->
 # Show informations
 showAbout = (evt) ->
   evt.preventDefault()
-  alert('(c) Strnadj, 2014')
+  alert('Strnadj, 2014')
 
 # Clear history BTN
 showLicense = (evt) ->

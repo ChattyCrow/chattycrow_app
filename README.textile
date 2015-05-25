@@ -12,8 +12,21 @@ cordova platform add [ios,wp,android]
 cordova run [ios, wp, android]
 </pre>
 
+h2. Screenshot
 
-h2. Libraries
+h2. Common issues
 
+Please be remember, **windows mobile support is still in development**, there are a lots of issues like HTTP requests malforming and UI scaling issue.
 
-h2. Thanks to
+h2. Libraries & Credits to icons :)
+
+* Apache Cordova 5.0.0
+* Gulp
+* CoffeeScript
+* Ratchet CSS
+* Flaticons icons
+* http://www.flaticon.com/authors/amit-jakhu - Amit Jakhu
+* http://www.flaticon.com/authors/simpleicon - Simple Icon
+* http://www.flaticon.com/authors/freepik - Freepik
+* http://www.flaticon.com/authors/google - Google
+* http://www.flaticon.com/authors/egor-rumyantsev - Egor Rumyantsev
