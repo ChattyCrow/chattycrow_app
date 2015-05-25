@@ -8,6 +8,7 @@ h2. Instalation
 npm install
 bower install
 gulp (run it twice!! ...)
+plugins.sh
 cordova platform add [ios,wp,android]
 cordova run [ios, wp, android]
 </pre>
