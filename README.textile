@@ -14,6 +14,11 @@ cordova run [ios, wp, android]
 
 h2. Screenshot
 
+!https://raw.githubusercontent.com/ChattyCrow/chattycrow_app/master/screenshots/info1.png!
+!https://raw.githubusercontent.com/ChattyCrow/chattycrow_app/master/screenshots/info2.png!
+!https://raw.githubusercontent.com/ChattyCrow/chattycrow_app/master/screenshots/info3.png!
+!https://raw.githubusercontent.com/ChattyCrow/chattycrow_app/master/screenshots/info4.png!
+
 h2. Common issues
 
 Please be remember, **windows mobile support is still in development**, there are a lots of issues like HTTP requests malforming and UI scaling issue.
