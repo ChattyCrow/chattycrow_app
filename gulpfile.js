@@ -47,15 +47,15 @@ gulp.task('jshint', function() {
              .pipe(jshint.reporter('jshint-stylish'));
 });
 
-/* Copy images */
+/* Copy libs */
 gulp.task('libs', function() {
   return gulp.src('./src/lib/**/*.js')
      .pipe(gulp.dest('./www/app/lib/'));
 });
 
-/* Copy libs */
+/* Copy images */
 gulp.task('images', function() {
-  return gulp.src('./res/images/*.*')
+  return gulp.src('./res/images/**/*.*')
      .pipe(gulp.dest('./www/images/'));
 });
 

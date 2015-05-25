@@ -64,42 +64,48 @@ class PushService
           }
         )
 
-   # Success event
-   success: (evt) ->
+  # Success event
+  success: (evt) ->
     if evt.uri
       console.log('registered###' + evt.uri)
     null
 
-   # Fail!
-   fail: (evt) ->
-     console.log evt
+  # Fail!
+  fail: (evt) ->
+    console.log evt
 
-   # Reaction to push
-   pushRecv: (push) ->
-     @historyService.addPush push
+  # Reaction to push
+  pushRecv: (push) ->
+    # Add push to history
+    @historyService.addPush push
+
      # Save push
-     alert 'Push recieved'
+    alert 'Push recieved'
 
-   # Store local push ID
-   storePushId: (id) ->
-     # Persist pushId in local storage
-     window.localStorage.setItem('pushId', id)
+    # Reload page if history or homepage?
+    if window.location.hash == '#history' || window.location.hash == '#'
+      $(window).trigger('hashchange')
 
-     # Try to register
-     sendToChattyCrow id, 0.0, 0.0, (err, data) ->
-       # Hide dialog
-       window.plugins.spinnerDialog.hide()
+  # Store local push ID
+  storePushId: (id) ->
+    # Persist pushId in local storage
+    window.localStorage.setItem('pushId', id)
 
-       # Callback
-       if err
-         # Remove push ID
-         window.localStorage.removeItem('pushId')
+    # Try to register
+    sendToChattyCrow id, 0.0, 0.0, (err, data) ->
+      # Hide dialog
+      window.plugins.spinnerDialog.hide()
 
-         # Alert about failed registration
-         alert 'Registration fail'
-       else
-         # Set to element
-         $('#pushId').html(id)
+      # Callback
+      if err
+        # Remove push ID
+        window.localStorage.removeItem('pushId')
 
-         # Alert fail
-         alert 'Registration success'
+        # Alert about failed registration
+        alert 'Registration fail'
+      else
+        # Set to element
+        $('#pushId').html(id)
+
+        # Alert fail
+        alert 'Registration success'

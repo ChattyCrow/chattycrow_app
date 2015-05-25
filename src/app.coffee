@@ -3,6 +3,7 @@ slider = new PageSlider($('.content'))
 
 # Back button
 backButton = $('#backButton')
+clearHistoryBtn = $('#clearHistory')
 
 # Prepare compiled templates
 Home.prototype.template = Handlebars.compile($('#home-tpl').html())
@@ -22,22 +23,22 @@ settingsService.setPushService pushService
 
 # Local functions
 sendToChattyCrow = (pushId, lat, lon, cb) ->
- # Try to send via ajax to server!
- $.ajax
-  url: "#{settingsService.hostUrl}/locations".replace('//', '/')
-  method: "POST"
-  headers:
-    'Contact-Token': settingsService.contactToken
-  data: JSON.stringify
-    contact: pushId
-    latitude: lat
-    longitude: lon
-  contentType: "application/json; charset=utf-8"
-  dataType: 'json'
-  success: (data) ->
-    cb null, data
-  error: (data) ->
-    cb data, null
+  # Try to send via ajax to server!
+  $.ajax
+    url: "#{settingsService.hostUrl}/locations".replace('//', '/')
+    method: "POST"
+    headers:
+      'Contact-Token': settingsService.contactToken
+    data: JSON.stringify
+      contact: pushId
+      latitude: lat
+      longitude: lon
+    contentType: "application/json; charset=utf-8"
+    dataType: 'json'
+    success: (data) ->
+      cb null, data
+    error: (data) ->
+      cb data, null
 
 # React to APNS event
 apn_event = (e) ->
@@ -51,11 +52,11 @@ wp_event = (e) ->
 
 # React to gcm events
 gcm_event = (e) ->
- switch e.event
-   when 'registered'
-     pushService.storePushId(e.regid)
-   when 'message'
-     pushService.pushRecv e
+  switch e.event
+    when 'registered'
+      pushService.storePushId(e.regid)
+    when 'message'
+      pushService.pushRecv e
 
 # Show informations
 showAbout = (evt) ->
@@ -83,17 +84,20 @@ settingsService.initialize().done ->
   router.addRoute '', ->
     slider.slidePage(new Home(historyService, pushService).render().el)
     backButton.hide()
+    clearHistoryBtn.hide()
     changeTitleText('ChattyCrow')
 
   # Account
   router.addRoute 'account', ->
     slider.slidePage(new Account(accountService).render().el)
+    clearHistoryBtn.hide()
     backButton.show()
     changeTitleText('Account')
 
   # About page
   router.addRoute 'informations', ->
     slider.slidePage(new About().render().el)
+    clearHistoryBtn.hide()
     backButton.show()
     changeTitleText('About')
 
@@ -101,12 +105,14 @@ settingsService.initialize().done ->
   router.addRoute 'history', ->
     slider.slidePage(new History(historyService).render().el)
     backButton.show()
+    clearHistoryBtn.show()
     changeTitleText('History')
 
   # Settings
   router.addRoute 'settings', ->
     slider.slidePage(new Settings(settingsService).render().el)
     backButton.show()
+    clearHistoryBtn.hide()
     changeTitleText('Settings')
 
   # Start routing
@@ -125,6 +131,14 @@ document.addEventListener 'deviceready', ->
 
   # Try to register push ID
   pushService.register()
+
+  # Clear history bind
+  clearHistoryBtn.on 'click', (evt) ->
+    evt.preventDefault()
+    historyService.clearHistory()
+
+    # Reload view
+    $(window).trigger('hashchange')
 
   # Override default notifications
   if navigator.notification

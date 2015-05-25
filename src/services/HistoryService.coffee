@@ -16,8 +16,6 @@ class HistoryService
     @pushes = []
     @pushesCount = 0
     window.localStorage.setItem 'pushes', JSON.stringify(@pushes)
-    $('#pushCount').html(@pushesCount)
-    window.location = '#'
 
   # Add push to history
   addPush: (content) ->

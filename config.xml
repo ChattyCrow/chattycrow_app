@@ -40,6 +40,8 @@
         <splash density="land-hdpi" height="480" src="res/screens/android/screen-hdpi-landscape.png" width="800" />
     </platform>
     <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
     <preference name="orientation" value="portrait" />
     <preference name="phonegap-version" value="3.6.3" />
     <plugin name="cordova-plugin-splashscreen" spec="^2.0.0" />
@@ -51,4 +53,5 @@
     <plugin name="com.phonegap.plugins.barcodescanner" spec="^2.0.1" />
     <plugin name="com.clone.phonegap.plugins.PushPlugin" spec="^2.4.1" />
     <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.0.0" />
 </widget>
