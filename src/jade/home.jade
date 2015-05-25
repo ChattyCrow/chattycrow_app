@@ -1,7 +1,7 @@
 ul.table-view
   mixin link(id, title, info, image, href)
     li.table-view-cell.media
-      a(onclick= href ? 'window.location.hash = \''+href+'\'' : '', id=id, data-transition='slide-in', class= (id != 'sendPosition') ? 'navigate-right' : '')
+      a(onclick= href ? 'window.location.hash = \''+href+'\'' : '', id=id, class= (id != 'sendPosition') ? 'navigate-right' : '')
         if id == 'history'
           .span.badge#badgeCount {{ history.pushesCount }}
 

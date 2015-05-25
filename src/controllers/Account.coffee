@@ -32,7 +32,7 @@ class Account
         ret += '<li class="table-view-cell"><strong>Type: </strong> ' + data.program.program + '</li>'
 
         percentage = 100 * (data.program.today / data.program.total)
-        ret += "<li class='table-view-cell'><strong>Requests left:</strong><br /><div style='width: 100%; text-align: center;'><div class='chart' data-percent='#{percentage}'><span>#{percentage}</span>%</div></div></li>"
+        ret += "<li class='table-view-cell' style='padding: 0;'><strong style='margin-left: 15px;'>Requests left:</strong><br /><div style='width: 100%; text-align: center;'><div class='chart' data-percent='#{percentage}'><span>#{percentage}</span>%</div><div>#{data.program.today}/#{data.program.total}</div></div></li>"
 
         ret += '<li class="table-view-divider">Applications</li>'
 
